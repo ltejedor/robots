@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div>
+  <p class="dialogue">To guide me, utter 5 words or 1 line of poetry</p>
+
+  <p>
+    <span class="tagParent"><span class="tag">Magnanimity</span></span><span class="tagParent"><span class="tag">Sentience</span></span><span class="tagParent"><span class="tag">Free Will</span></span>
+    <span class="tagParent"><span class="tag">Obsolescence</span></span><span class="tagParent"><span class="tag">Robots</span></span><span class="tagParent"><span class="tag">Fire</span></span>
+    <span class="tagParent"><span class="tag">Sunlight</span></span><span class="tagParent"><span class="tag">Burgers</span></span><span class="tagParent"><span class="tag">Pamplamoose</span></span>
+  </p>
+
+  <p class="dialogue">or</p>
+
+  <p>
+    <span class="tagParent"><span class="tag">"All that glitters is not gold"</span></span><span class="tagParent"><span class="tag">"Love looks not with the eyes, but with the mind"</span></span>
+  </p>
+
+  <a class="button purple" href="pay">Utter words / poetry</a>
+</div>
+
+<script>
+  var elems = document.querySelectorAll('.tag');
+
+  for (var i=elems.length; i--;) {
+      elems[i].addEventListener('click', fn, false);
+  }
+
+  function fn() {
+    if (this.classList.contains("selected")) {
+      this.classList.remove("selected")
+      this.parentNode.removeChild(this.parentNode.firstChild);
+    } else {
+      this.classList.add("selected")
+      var spanNode = document.createElement("span")
+      spanNode.classList.add("checkmark");
+      var text = document.createTextNode('✓');
+      spanNode.append(text);
+      var child = this;
+      child.parentNode.insertBefore(spanNode, child);
+    }
+  }
+</script>
+
+{% endblock %}

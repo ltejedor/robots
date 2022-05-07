@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div>
+  <p class="dialogue">Okay, but first you need to feed me.</p>
+
+  <p class="address">ETH 0.0074</p>
+  <p class="secondary">~ $20.00 each</p>
+
+  <select name="nfts" id="nfts">
+    <option value="1">1 Multiversal NFT</option>
+    <option value="2">2 Multiversal NFTs</option>
+    <option value="3">3 Multiversal NFTs</option>
+    <option value="4">4 Multiversal NFTs</option>
+  </select>
+  <a class="button purple" href="checknum">Feed Prometheus</a>
+</div>
+{% endblock %}

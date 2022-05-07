@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div>
+  <p class="dialogue">Beep boop beep beep beep blop ba dum tssss</p>
+
+  <div>
+    <img class="display-img" src="{{ url_for('static', filename='img/loading.gif') }}">
+  </div>
+
+  <a class="button purple" href="/claim">Claim Multiversal NFTs</a>
+</div>
+{% endblock %}

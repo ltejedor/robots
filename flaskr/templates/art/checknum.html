@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div>
+  <p class="dialogue">You will receive 2 multiversal NFTs because you bought two tokens</p>
+
+  <div>
+    <img class="arrows" src="{{ url_for('static', filename='img/arrows.png') }}">
+    <img class="final-display-img" src="{{ url_for('static', filename='img/mysteries.png') }}">
+  </div>
+
+  <a class="button purple" href="/loading">Continue</a>
+  <a class="button purple" href="#">Back</a>
+</div>
+{% endblock %}

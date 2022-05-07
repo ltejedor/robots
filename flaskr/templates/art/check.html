@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div>
+  <p class="dialogue">Is this the object you would like to see  multiversal versions of?</p>
+
+  <div>
+    <img class="display-img" src="{{ url_for('static', filename='img/init-img.png') }}">
+  </div>
+
+  <a class="button purple" href="/pay">Yes</a>
+  <a class="button purple" href="#">No, I'd like to choose another</a>
+</div>
+{% endblock %}
