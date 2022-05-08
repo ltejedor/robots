@@ -30,10 +30,10 @@ def create_app(test_config=None):
     def hello():
         return 'Hello, World!'
 
-    @app.route("/image")
-    def send_image():
+    @app.route("/sia/upload/<imagename>")
+    def send_image(imagename):
         url = 'https://siasky.net/skynet/skyfile'
-        image_location = '/app/flaskr/images/137439.jpeg'
+        image_location = '/app/flaskr/images/' + imagename
         files = {'media': open(image_location, 'rb')}
         response = requests.post(url, files=files)
         link = json.loads(response.text)
