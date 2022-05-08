@@ -1,6 +1,7 @@
 import os
 
-from flask import Flask
+import json, requests
+from flask import Flask, request, jsonify
 
 
 def create_app(test_config=None):
@@ -28,6 +29,15 @@ def create_app(test_config=None):
     @app.route('/hello')
     def hello():
         return 'Hello, World!'
+
+    @app.route("/image")
+    def send_image():
+        url = 'https://siasky.net/skynet/skyfile'
+        image_location = '/app/flaskr/images/137439.jpeg'
+        files = {'media': open(image_location, 'rb')}
+        response = requests.post(url, files=files)
+        link = json.loads(response.text)
+        return link["skylink"], 201
 
     from . import db
     db.init_app(app)
