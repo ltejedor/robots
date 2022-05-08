@@ -30,7 +30,7 @@ def create_app(test_config=None):
     def hello():
         return 'Hello, World!'
 
-    @app.route("/sia/upload/<imagename>")
+    @app.route("/sia_upload/<imagename>")
     def send_image(imagename):
         url = 'https://siasky.net/skynet/skyfile'
         image_location = '/app/flaskr/images/' + imagename
